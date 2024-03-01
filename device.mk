@@ -106,6 +106,10 @@ TARGET_HAS_GENERIC_KERNEL_HEADERS := true
 
 # HIDL
 PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor \
     android.hidl.memory.block@1.0.vendor
 
 # Init
