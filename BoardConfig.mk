@@ -123,6 +123,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
 
 # Inherit from ReloadedOS configuration
 include vendor/reloaded/config/BoardConfigReloaded.mk
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
