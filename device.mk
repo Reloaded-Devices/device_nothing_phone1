@@ -44,7 +44,7 @@ BOARD_AVB_ENABLE := true
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/mixer_paths_yupikqrd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_yupik/mixer_paths_yupikqrd.xml
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_yupik)
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -66,6 +66,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Display
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/displayconfig/display_id_4630946480328692354.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946480328692354.xml
+
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -135,6 +138,10 @@ DEVICE_MANIFEST_FILE += \
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/phone1_vendor_framework_compatibility_matrix.xml
+
+# Media
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
